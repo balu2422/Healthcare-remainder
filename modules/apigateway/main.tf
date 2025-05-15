@@ -57,7 +57,7 @@ resource "aws_api_gateway_integration" "update_lambda" {
   http_method             = aws_api_gateway_method.update_post.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = module.lambda["UpdatePrescriptionFunction"]
+  #uri                     = module.lambda["UpdatePrescriptionFunction"]
 }
 
 resource "aws_api_gateway_integration" "notifications_lambda" {
@@ -66,13 +66,13 @@ resource "aws_api_gateway_integration" "notifications_lambda" {
   http_method             = aws_api_gateway_method.notifications_get.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = module.lambda_functions["NotificationsFunction"]
+  #uri                     = module.lambda_functions["NotificationsFunction"]
 }
 
 resource "aws_lambda_permission" "upload_api" {
   statement_id  = "AllowAPIGatewayInvokeUpload"
   action        = "lambda:InvokeFunction"
-  function_name = module.lambda_functions["UploadPatientDocumentFunction"]
+  function_name = module.UpdatePrescriptionFunction["UploadPatientDocumentFunction"]
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/POST/upload"
 }
@@ -80,7 +80,7 @@ resource "aws_lambda_permission" "upload_api" {
 resource "aws_lambda_permission" "update_api" {
   statement_id  = "AllowAPIGatewayInvokeUpdate"
   action        = "lambda:InvokeFunction"
-  function_name = module.lambda_functions["UpdatePrescriptionFunction"]
+  function_name = module.UpdatePrescriptionFunction["UpdatePrescriptionFunction"]
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/POST/update"
 }
