@@ -104,10 +104,3 @@ resource "aws_api_gateway_deployment" "deployment" {
   stage_name  = "prod"
 }
 
-output "invoke_urls" {
-  value = {
-    upload        = "${aws_api_gateway_deployment.deployment.invoke_url}/upload"
-    update        = "${aws_api_gateway_deployment.deployment.invoke_url}/update"
-    notifications = "${aws_api_gateway_deployment.deployment.invoke_url}/notifications"
-  }
-}
