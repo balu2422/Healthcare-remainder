@@ -6,6 +6,7 @@ module "s3" {
 module "sns" {
   source = "./modules/sns"
   topic_name = "PatientNotificationTopic"
+  subscription_email = "balureddy112211@gmail.com"
 }
 
 module "dynamodb" {
