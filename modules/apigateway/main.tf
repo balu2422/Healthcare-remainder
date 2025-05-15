@@ -72,7 +72,7 @@ resource "aws_api_gateway_integration" "notifications_lambda" {
 resource "aws_lambda_permission" "upload_api" {
   statement_id  = "AllowAPIGatewayInvokeUpload"
   action        = "lambda:InvokeFunction"
-  function_name = module.UpdatePrescriptionFunction["UploadPatientDocumentFunction"]
+  function_name = UpdatePrescriptionFunction
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/POST/upload"
 }
