@@ -23,10 +23,6 @@ module "lambda" {
   source = "./modules/lambda"
 
   lambda_source_dir = var.lambda_source_dir
-  s3_bucket         = module.s3.bucket_name
-  dynamodb_table    = module.dynamodb.table_name
-  sns_topic_arn     = module.sns.topic_arn
-  lambda_role_arn   = module.iam.lambda_role_arn
 }
 
 module "apigateway" {
