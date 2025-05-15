@@ -48,7 +48,7 @@ resource "aws_api_gateway_integration" "upload_lambda" {
   http_method             = aws_api_gateway_method.upload_post.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = module.lambda_functions["UploadPatientDocumentFunction"]
+  #uri                     = module.lambda_functions["UploadPatientDocumentFunction"]
 }
 
 resource "aws_api_gateway_integration" "update_lambda" {
@@ -57,7 +57,7 @@ resource "aws_api_gateway_integration" "update_lambda" {
   http_method             = aws_api_gateway_method.update_post.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = module.lambda_functions["UpdatePrescriptionFunction"]
+  uri                     = module.lambda["UpdatePrescriptionFunction"]
 }
 
 resource "aws_api_gateway_integration" "notifications_lambda" {
