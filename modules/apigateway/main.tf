@@ -1,10 +1,4 @@
 
----
-
-# Module: apigateway
-
-### modules/apigateway/main.tf
-```hcl
 resource "aws_api_gateway_rest_api" "api" {
   name = "PatientManagementAPI"
 }
