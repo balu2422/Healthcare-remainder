@@ -27,6 +27,8 @@ module "lambda" {
 
 module "apigateway" {
   source = "./modules/apigateway"
+  uri = module.lambda["UploadPatientDocumentFunction"]
+  uri = module.lambda["UpdatePrescriptionFunction"]
   
   lambda_functions = {
     UploadPatientDocumentFunction = module.lambda.upload_lambda_arn
