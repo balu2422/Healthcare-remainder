@@ -1,4 +1,4 @@
-avariable "topic_name" {
+variable "topic_name" {
   type        = string
   description = "SNS Topic Name"
 }
