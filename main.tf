@@ -22,7 +22,7 @@ module "iam" {
 module "lambda" {
   source = "./modules/lambda"
 
-  lambda_source_dir = var.lambda_source_dir
+  #lambda_source_dir = var.lambda_source_dir
 }
 
 module "apigateway" {
