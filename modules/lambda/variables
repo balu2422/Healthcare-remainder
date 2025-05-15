@@ -1,20 +1,24 @@
 variable "lambda_source_dir" {
-  description = "Path to lambda source directory"
+  description = "Directory where Lambda source files are stored"
   type        = string
 }
 
 variable "s3_bucket" {
-  type = string
+  description = "S3 bucket name for Lambda environment"
+  type        = string
 }
 
 variable "dynamodb_table" {
-  type = string
+  description = "DynamoDB table name"
+  type        = string
 }
 
 variable "sns_topic_arn" {
-  type = string
+  description = "ARN of the SNS topic"
+  type        = string
 }
 
 variable "lambda_role_arn" {
-  type = string
+  description = "IAM role ARN for Lambda execution"
+  type        = string
 }
