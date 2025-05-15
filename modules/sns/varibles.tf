@@ -1,4 +1,4 @@
-variable "topic_name" {
+avariable "topic_name" {
   type        = string
   description = "SNS Topic Name"
 }
@@ -6,5 +6,5 @@ variable "topic_name" {
 variable "subscription_email" {
   type        = string
   description = "Email address to subscribe to the SNS topic (optional)"
-  default     = ""
+  default     = "balureddy112211@gmail.com"
 }
